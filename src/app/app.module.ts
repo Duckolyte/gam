@@ -10,6 +10,8 @@ import { ItemDescriptionComponent } from './template/item-description/item-descr
 import { ItemListComponent } from './template/item-list/item-list.component';
 import { ListItemComponent } from './template/list-item/list-item.component';
 import { FooterComponent } from './template/footer/footer.component';
+import { BasePageComponent } from './page/base-page/base-page.component';
+import { ItemPageComponent } from './page/item-page/item-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FooterComponent } from './template/footer/footer.component';
     ItemDescriptionComponent,
     ItemListComponent,
     ListItemComponent,
-    FooterComponent
+    FooterComponent,
+    BasePageComponent,
+    ItemPageComponent
   ],
   imports: [
     BrowserModule
