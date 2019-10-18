@@ -12,6 +12,7 @@ import { ListItemComponent } from './template/list-item/list-item.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { BasePageComponent } from './page/base-page/base-page.component';
 import { ItemPageComponent } from './page/item-page/item-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ItemPageComponent } from './page/item-page/item-page.component';
     ItemPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
