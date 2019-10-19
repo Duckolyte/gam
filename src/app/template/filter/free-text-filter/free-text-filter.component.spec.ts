@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterFormComponent } from './filter-form.component';
+import { FreeTextFilterComponent } from './free-text-filter.component';
 
-describe('FilterComponent', () => {
-  let component: FilterFormComponent;
-  let fixture: ComponentFixture<FilterFormComponent>;
+describe('FreeTextFilterComponent', () => {
+  let component: FreeTextFilterComponent;
+  let fixture: ComponentFixture<FreeTextFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterFormComponent ]
+      declarations: [ FreeTextFilterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FilterFormComponent);
+    fixture = TestBed.createComponent(FreeTextFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,1 +1,4 @@
-<p>item-list works!</p>
+<app-list-header></app-list-header>
+<mat-list>
+  <app-list-item *ngFor="let item in items" [item]="item"></app-list-item>
+</mat-list>

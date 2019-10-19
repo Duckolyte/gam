@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-list.component.sass']
 })
 export class ItemListComponent implements OnInit {
+  items: any;
 
   constructor() { }
 
