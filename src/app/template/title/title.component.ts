@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./title.component.sass']
 })
 export class TitleComponent implements OnInit {
-  item: any;
+  @Input() item: any;
 
   constructor() { }
 
