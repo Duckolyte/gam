@@ -26,6 +26,7 @@ export class ProcessService {
               id: 1,
               type: 'tool',
               name: 'cleaning-tool-1',
+              childrenType: 'Parameter',
               children: [
                 {
                   id: 1,
@@ -82,7 +83,7 @@ export class ProcessService {
     return this.selectedProcess;
   }
 
-  updateSelectedProcess(selectedProcess) {
+  updateProcessSelection(selectedProcess) {
     if (this.selectedProcess.id === selectedProcess.id) {
       this.clearSelectedProcess();
       return;
@@ -91,7 +92,7 @@ export class ProcessService {
   }
 
   setSelectedProcess(selectedProcess) {
-    this.selectedProcess =  this.allProcesses.find(
+    this.selectedProcess = this.allProcesses.find(
       process => process.id === selectedProcess.id
     );
   }
@@ -100,4 +101,26 @@ export class ProcessService {
     this.selectedProcess = null;
   }
 
+  getSelectedProcessNestedItem(itemType: string, itemId: number) {
+    if (itemType === 'process') {
+      return this.selectedProcess;
+    }
+    return this.searchInChildren(
+      this.selectedProcess,
+      itemType,
+      itemId
+    );
+  }
+
+  private searchInChildren(obj: any, itemType: string, itemId: number) {
+    if (obj.childrenType.toLowerCase() === itemType) {
+      return obj.children.find(child => child.id === itemId);
+    }
+    for (const child of obj.children) {
+      const match = this.searchInChildren(child, itemType, itemId);
+      if (match) {
+        return match;
+      }
+    }
+  }
 }

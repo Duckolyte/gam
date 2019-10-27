@@ -50,7 +50,7 @@ import { ErrorPageComponent } from './page/error-page/error-page.component';
     MatIconModule,
     MatMenuModule,
     RouterModule.forRoot([
-      {path: 'processes/process/:processId/step/:stepId/tool/:toolId/parameter:parameterId', component: ItemViewComponent},
+      {path: 'processes/process/:processId/step/:stepId/tool/:toolId/parameter/:parameterId', component: ItemViewComponent},
       {path: 'processes/process/:processId/step/:stepId/tool/:toolId', component: ItemViewComponent},
       {path: 'processes/process/:processId/step/:stepId', component: ItemViewComponent},
       {path: 'processes/process/:processId', component: ItemViewComponent},
