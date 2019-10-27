@@ -2,6 +2,9 @@ import {Step} from './step';
 
 export interface Process {
   id: bigint;
+  type: string;
+  subject: string;
   name: string;
-  steps: Step[];
+  children: Step[];
+  childrenType: string;
 }

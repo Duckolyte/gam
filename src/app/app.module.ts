@@ -18,6 +18,8 @@ import { ListHeaderComponent } from './template/item-list/list-header/list-heade
 import { ItemMenuComponent } from './template/item-list/list-item/item-menu/item-menu.component';
 import { ItemViewComponent } from './view/item-view/item-view.component';
 import { ProcessesViewComponent } from './processes-view/processes-view.component';
+import {RouterModule} from '@angular/router';
+import { ErrorPageComponent } from './page/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ProcessesViewComponent } from './processes-view/processes-view.componen
     ListHeaderComponent,
     ItemMenuComponent,
     ItemViewComponent,
-    ProcessesViewComponent
+    ProcessesViewComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,16 @@ import { ProcessesViewComponent } from './processes-view/processes-view.componen
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule.forRoot([
+      {path: 'processes/process/:processId/step/:stepId/tool/:toolId/parameter:parameterId', component: ItemViewComponent},
+      {path: 'processes/process/:processId/step/:stepId/tool/:toolId', component: ItemViewComponent},
+      {path: 'processes/process/:processId/step/:stepId', component: ItemViewComponent},
+      {path: 'processes/process/:processId', component: ItemViewComponent},
+      {path: 'processes', component: ProcessesViewComponent},
+      {path: '', redirectTo: '/processes', pathMatch: 'full'},
+      {path: '**', component: ErrorPageComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

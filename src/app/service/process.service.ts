@@ -10,19 +10,62 @@ export class ProcessService {
 
   constructor() {
     const dummyProcess1 = {
-      id: '1',
+      id: 1,
+      type: 'process',
       name: 'dummyProcess1',
-      tools: [],
+      subject: 'dummy subject 1',
+      childrenType: 'Step',
+      children: [
+        {
+          id: 1,
+          type: 'step',
+          name: 'cleaning-step-1',
+          childrenType: 'Tool',
+          children: [
+            {
+              id: 1,
+              type: 'tool',
+              name: 'cleaning-tool-1',
+              children: [
+                {
+                  id: 1,
+                  type: 'parameter',
+                  name: 'threshold-1',
+                  value: '60',
+                },
+                {
+                  id: 2,
+                  type: 'parameter',
+                  name: 'threshold-1',
+                  value: '60',
+                },
+                {
+                  id: 3,
+                  type: 'parameter',
+                  name: 'offset',
+                  value: '100',
+                }
+              ]
+            }
+          ],
+        }
+      ],
     };
     const dummyProcess2 = {
-      id: '2',
-      name: 'dummyProcess1',
-      tools: [],
+      id: 2,
+      type: 'process',
+      name: 'dummyProcess2',
+      subject: 'dummy subject 2',
+      childrenType: 'Step',
+      children: [],
     };
     const dummyProcess3 = {
-      id: '3',
-      name: 'dummyProcess1',
-      tools: [],
+      id: 3,
+      type: 'process',
+      name: 'dummyProcess3',
+      subject: 'dummy subject 3',
+      childrenType: 'Step',
+      children: [],
     };
     this.updateAllProcesses([dummyProcess1, dummyProcess2, dummyProcess3]);
   }
@@ -48,7 +91,7 @@ export class ProcessService {
   }
 
   setSelectedProcess(selectedProcess) {
-    return this.allProcesses.find(
+    this.selectedProcess =  this.allProcesses.find(
       process => process.id === selectedProcess.id
     );
   }

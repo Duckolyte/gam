@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-list-header',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-header.component.sass']
 })
 export class ListHeaderComponent implements OnInit {
+  @Input() itemsType: any;
 
   constructor() { }
 

@@ -2,6 +2,8 @@ import {Parameter} from './parameter';
 
 export interface Tool {
   id: bigint;
+  type: string;
   name: string;
-  parameters: Parameter[];
+  children: Parameter[];
+  childrenType: string;
 }

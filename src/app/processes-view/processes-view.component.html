@@ -1,2 +1,5 @@
 <app-title [item]="{type: 'All Processes'}"></app-title>
-<app-item-list [items]="processService.allProcesses"></app-item-list>
+<app-item-list
+  [itemsType]="{childrenType: 'Processes'}"
+  [items]="processService.getAllProcesses()"
+></app-item-list>

@@ -1,4 +1,4 @@
-<app-list-header></app-list-header>
+<app-list-header [itemsType]="itemsType"></app-list-header>
 <mat-list>
   <app-list-item *ngFor="let item of items" [item]="item"></app-list-item>
 </mat-list>

@@ -1,4 +1,8 @@
-<app-title></app-title>
-<app-item-description></app-item-description>
-<app-subtitle></app-subtitle>
-<app-item-list></app-item-list>
+<app-title [item]="item"></app-title>
+<app-subtitle [item]="item"></app-subtitle>
+<app-item-description [item]="item"></app-item-description>
+<app-item-list
+  *ngIf="item.children.length"
+  [itemsType]="item.childrenType"
+  [items]="item.children"
+></app-item-list>
