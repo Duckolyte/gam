@@ -17,7 +17,7 @@ import { FreeTextFilterComponent } from './template/filter/free-text-filter/free
 import { ListHeaderComponent } from './template/item-list/list-header/list-header.component';
 import { ItemMenuComponent } from './template/item-list/list-item/item-menu/item-menu.component';
 import { ItemViewComponent } from './view/item-view/item-view.component';
-import { ProcessesViewComponent } from './processes-view/processes-view.component';
+import { ProcessesViewComponent } from './view/processes-view/processes-view.component';
 import {RouterModule} from '@angular/router';
 import { ErrorPageComponent } from './page/error-page/error-page.component';
 
