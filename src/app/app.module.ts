@@ -12,7 +12,15 @@ import { ListItemComponent } from './template/item-list/list-item/list-item.comp
 import { FooterComponent } from './template/footer/footer.component';
 import { BasePageComponent } from './page/base-page/base-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDividerModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule
+} from '@angular/material';
 import { FreeTextFilterComponent } from './template/filter/free-text-filter/free-text-filter.component';
 import { ListHeaderComponent } from './template/item-list/list-header/list-header.component';
 import { ItemMenuComponent } from './template/item-list/list-item/item-menu/item-menu.component';
@@ -20,6 +28,7 @@ import { ItemViewComponent } from './view/item-view/item-view.component';
 import { ProcessesViewComponent } from './view/processes-view/processes-view.component';
 import {RouterModule} from '@angular/router';
 import { ErrorPageComponent } from './page/error-page/error-page.component';
+import { AddItemButtonComponent } from './template/item-list/add-item-button/add-item-button.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,8 @@ import { ErrorPageComponent } from './page/error-page/error-page.component';
     ItemMenuComponent,
     ItemViewComponent,
     ProcessesViewComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AddItemButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +67,9 @@ import { ErrorPageComponent } from './page/error-page/error-page.component';
       {path: 'processes', component: ProcessesViewComponent},
       {path: '', redirectTo: '/processes', pathMatch: 'full'},
       {path: '**', component: ErrorPageComponent},
-    ])
+    ]),
+    MatButtonModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,8 @@
 <app-subtitle [item]="item"></app-subtitle>
 <app-item-description [item]="item"></app-item-description>
 <app-item-list
-  *ngIf="item.children.length"
+  *ngIf="item.hasOwnProperty('children') ? item.children.length : false"
+  [item]="item"
   [itemsType]="item.childrenType"
   [items]="item.children"
 ></app-item-list>

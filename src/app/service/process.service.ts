@@ -113,7 +113,7 @@ export class ProcessService {
   }
 
   private searchInChildren(obj: any, itemType: string, itemId: number) {
-    if (obj.childrenType.toLowerCase() === itemType) {
+    if (obj.childrenType.toLowerCase() === itemType.toLowerCase()) {
       return obj.children.find(child => child.id === itemId);
     }
     for (const child of obj.children) {
