@@ -1,9 +1,11 @@
-<div>
-  <h3 matLine (click)="selectItem()">
-      {{item.name}}
-  </h3>
+<mat-list-item >
   <div matLine>
-    <span> {{item.subject}} </span>
-    <app-item-menu></app-item-menu>
+    <h3 matLine (click)="selectItem()">
+      {{item.name}}
+    </h3>
+    <div>
+      <span> {{item.subject}} </span>
+    </div>
   </div>
-</div>
+  <app-item-menu></app-item-menu>
+</mat-list-item>
