@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProcessService} from '../../../../service/process.service';
+import {ActivatedRoute} from '@angular/router';
+import {NavigationService} from '../../../../service/navigation.service';
 
 @Component({
   selector: 'app-item-menu',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemMenuComponent implements OnInit {
 
-  constructor() { }
+  @Input() item: any;
+
+  constructor(
+    private processService: ProcessService,
+    private route: ActivatedRoute,
+    private navigationService: NavigationService
+  ) {
+  }
 
   ngOnInit() {
+  }
+
+  editItem() {
+    this.navigationService.navigateToItem(this.item);
+  }
+
+  deleteItem() {
+    this.processService.removeSelectedProcessNestedItem(this.item.type, this.item.id);
   }
 
 }

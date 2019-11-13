@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProcessService} from '../../../service/process.service';
+import {NavigationService} from '../../../service/navigation.service';
 
 @Component({
   selector: 'app-list-item',
@@ -12,6 +13,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private navigationService: NavigationService,
     private processService: ProcessService,
     ) { }
 
@@ -19,16 +21,15 @@ export class ListItemComponent implements OnInit {
   }
 
   selectItem() {
-    this.processService.setSelectedProcess(this.item);
+    if (this.item.type === 'process') {
+      this.processService.setSelectedProcess(this.item);
+    }
     console.log(this.processService.getSelectedProcess());
     this.navigateToItem();
   }
 
   navigateToItem() {
-    this.router.navigate([`${this.getCurrentUrl()}/${this.item.type}/${this.item.id}`]);
+    this.navigationService.navigateToItem(this.item);
   }
 
-  getCurrentUrl(): string {
-    return this.router.url;
-  }
 }

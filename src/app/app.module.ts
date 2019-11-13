@@ -48,7 +48,7 @@ import { AddItemButtonComponent } from './template/item-list/add-item-button/add
     ItemViewComponent,
     ProcessesViewComponent,
     ErrorPageComponent,
-    AddItemButtonComponent
+    AddItemButtonComponent,
   ],
   imports: [
     BrowserModule,

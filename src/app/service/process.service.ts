@@ -49,6 +49,13 @@ export class ProcessService {
               ]
             }
           ],
+        },
+        {
+          id: 2,
+          type: 'step',
+          name: 'cleaning-step-2',
+          childrenType: 'Tool',
+          children: []
         }
       ],
     };
@@ -101,6 +108,38 @@ export class ProcessService {
     this.selectedProcess = null;
   }
 
+  removeSelectedProcessNestedItem(itemType: string, itemId: number) {
+    if (itemType === 'process') {
+      this.allProcesses = this.allProcesses.filter(process => process.id !== itemId);
+    } else {
+      const cleanedList = this.removeNestedItemFromList(this.selectedProcess, itemType, itemId);
+      if (cleanedList) {
+        console.log('@TODO send message successfully deleted item.');
+      }
+    }
+  }
+
+  private removeNestedItemFromList(obj: any, itemType: string, itemId: number): any[] {
+    if (obj.childrenType.toLowerCase() === itemType.toLowerCase()) {
+      if (obj.children.find(child => child.id === itemId)) {
+        obj.children = obj.children.filter(child => child.id !== itemId);
+        return obj.children;
+      }
+    }
+    if (obj.children) {
+      for (const child of obj.children) {
+        const match = this.removeNestedItemFromList(child, itemType, itemId);
+        if (match) {
+          return match;
+        }
+      }
+    }
+  }
+
+  // @TODO
+  // needs to be renamed and splitted into 2 functions
+  // rename to getItem()
+  // split into getSelectedProcessNestedItem and getProcess
   getSelectedProcessNestedItem(itemType: string, itemId: number) {
     if (itemType === 'process') {
       return this.selectedProcess;
